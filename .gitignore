@@ -1,0 +1,14 @@
+.sconsign.dblite
+*.swp
+custom.py
+index.html.map
+index.html
+index.js
+index.wasm
+index.wast
+*.o
+*.a
+*.pyc
+node_modules
+.DS_Store
+
