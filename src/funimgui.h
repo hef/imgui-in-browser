@@ -11,8 +11,6 @@ private:
     static void initGraphics();
     static void initFont();
     static void RenderDrawLists(ImDrawData* drawData);
-    static const char* GetClipboardText(void*);
-    static void SetClipboardText(void*, const char* text);
     static int mouseCallback(int eventType, const EmscriptenMouseEvent* mouseEvent, void* userData);
     static int wheelCallback(int eventType, const EmscriptenWheelEvent* wheelEvent, void* userData);
     static int keyboardCallback(int eventType, const EmscriptenKeyboardEvent* keyEvent, void* userData);

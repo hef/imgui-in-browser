@@ -1,6 +1,5 @@
 #include "funimgui.h"
 #include "draw.h"
-#include "clipboard.h"
 #include <imgui.h>
 #include <stdio.h>
 #include <emscripten/emscripten.h>
@@ -70,8 +69,6 @@ void FunImGui::init()
     io.KeyMap[ImGuiKey_Z] = 90;
     
     io.RenderDrawListsFn = RenderDrawLists;
-    io.SetClipboardTextFn = SetClipboardText;
-    io.GetClipboardTextFn = GetClipboardText;
     io.ClipboardUserData = nullptr;
     initGraphics();
 
@@ -97,14 +94,13 @@ void FunImGui::BeginFrame()
     ImGuiIO& io = ImGui::GetIO();
     int width = 0;
     int height = 0;
-    int isFullscreen = 0;
     // int display_w = 0;
     // int display_h = 0;
     //
     //
     //double ratio = emscripten_get_device_pixel_ratio();
 
-    emscripten_get_canvas_size(&width, &height, &isFullscreen);
+    emscripten_get_canvas_element_size("canvas", &width, &height);
     io.DisplaySize = ImVec2((float)width, (float)height);
     io.DisplayFramebufferScale = ImVec2(1.f,1.f);
     /*io.DisplayFramebufferScale = ImVec2(
@@ -224,18 +220,6 @@ void FunImGui::RenderDrawLists(ImDrawData* drawData)
     if(lastEnableScissorTest) glEnable(GL_SCISSOR_TEST); else glDisable(GL_SCISSOR_TEST);
     glViewport(lastViewport[0], lastViewport[1], (GLsizei)lastViewport[2], (GLsizei)lastViewport[3]); 
     glScissor(lastScissorBox[0], lastScissorBox[1], (GLsizei)lastScissorBox[2], (GLsizei)lastScissorBox[3]);
-}
-
-const char* FunImGui::GetClipboardText(void*)
-{
-    printf("GetClipboard: %s\n", Clipboard::data.c_str());
-    return Clipboard::data.c_str();
-}
-
-void FunImGui::SetClipboardText(void*, const char* text)
-{
-    printf("setClipboard: %s\n", text);
-    Clipboard::data = text;
 }
 
 void FunImGui::initGraphics()

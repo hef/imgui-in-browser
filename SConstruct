@@ -20,15 +20,12 @@ env.StaticLibrary('imgui',source=[
     'external/imgui_draw.cpp'
 ])
 env.StaticLibrary('core', source=[
-    'src/download.cpp',
     'src/draw.cpp',
-    'src/em.cpp',
-    'src/framemonitor.cpp',
     'src/funimgui.cpp',
     'src/main.cpp',
 ], CPPPATH=['external'])
 index = env.Program(target='{}/index.js'.format(env['OUTDIR']), source=[
-'src/clipboard.cpp'
+'src/em.cpp'
 ], LIBS=['core', 'imgui'], LIBPATH='.')
 Default(index)
 
