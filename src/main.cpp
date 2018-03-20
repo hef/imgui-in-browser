@@ -16,7 +16,6 @@ bool init()
 {
     
     bool result = GDraw.init();
-    initializeEmFunGImGui();
     FunImGui::init();
     gFrameMonitor = new FrameMonitor;
     gDownload = new Download;
@@ -32,7 +31,7 @@ void loop()
     //gFrameMonitor->update();
     //gFrameMonitor->debugDraw();
     //gDownload->debugDraw();
-    ImGui::ShowTestWindow(&bShowTestWindow);
+    ImGui::ShowDemoWindow(&bShowTestWindow);
     Draw::clear();
     ImGui::Render();
 }
