@@ -12,7 +12,7 @@ if env['RELEASE']:
     linkerflags = ''
 else:
     flags = '-O0 -s WASM=0 -g4 -s ASSERTIONS=2 -s DEMANGLE_SUPPORT=1'
-    linkerflags = "--pre-js {}/emscripten/1.37.36/src/emscripten-source-map.min.js".format(env['EMSDK'])
+    linkerflags = "--pre-js {}/emscripten/1.38.20/src/emscripten-source-map.min.js".format(env['EMSDK'])
 
 env.StaticLibrary('imgui',source=[
     'external/imgui.cpp',
@@ -36,10 +36,10 @@ env['RANLIB'] = 'emranlib'
 env['CXXFLAGS'] = '-std=c++14 ' + flags
 env['LINKFLAGS'] = flags + " --bind " + linkerflags
 env['ENV']['PATH'] += ':{}'.format(env['EMSDK'])
-env['ENV']['PATH'] += ':{}/clang/e1.37.36_64bit'.format(env['EMSDK'])
+env['ENV']['PATH'] += ':{}/clang/e1.38.20_64bit'.format(env['EMSDK'])
 env['ENV']['PATH'] += ':{}/node/8.9.1_64bit/bin'.format(env['EMSDK'])
-env['ENV']['PATH'] += ':{}/emscripten/1.37.36'.format(env['EMSDK'])
+env['ENV']['PATH'] += ':{}/emscripten/1.38.20'.format(env['EMSDK'])
 
 env['ENV']['EMSDK'] = env['EMSDK']
-env['ENV']['BINARYEN_ROOT'] = '{}/clang/e1.37.36_64bit/binaryen'.format(env['EMSDK'])
-env['ENV']['EMSCRIPTEN'] = '{}/emscripten/1.37.36'.format(env['EMSDK'])
+env['ENV']['BINARYEN_ROOT'] = '{}/clang/e1.38.20_64bit/binaryen'.format(env['EMSDK'])
+env['ENV']['EMSCRIPTEN'] = '{}/emscripten/1.38.20'.format(env['EMSDK'])
