@@ -18,7 +18,8 @@ else:
 env.StaticLibrary('imgui',source=[
     'external/imgui.cpp',
     'external/imgui_demo.cpp',
-    'external/imgui_draw.cpp'
+    'external/imgui_draw.cpp',
+    'external/imgui_widgets.cpp'
 ])
 env.StaticLibrary('core', source=[
     'src/draw.cpp',

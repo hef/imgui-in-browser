@@ -46,6 +46,7 @@ unsigned int FunImGui::m_fontTexture = -1;
 
 void FunImGui::init()
 {
+    ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
 
     io.KeyMap[ImGuiKey_Tab] = 9;
