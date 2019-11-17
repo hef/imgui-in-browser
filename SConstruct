@@ -1,6 +1,7 @@
+import os
 vars = Variables('custom.py')
 vars.Add(BoolVariable('RELEASE','set to 1 for ', 1))
-vars.Add(PathVariable('EMSDK', "path to emsdk dir", None))
+vars.Add(PathVariable('EMSDK', "path to emsdk dir", os.environ.get('EMSDK')))
 vars.Add(PathVariable('OUTDIR', "path to output dir", 'out'))
 env = Environment(variables = vars)
 vars.Save('custom.py', env)
