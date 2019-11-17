@@ -18,7 +18,7 @@ bool Draw::init()
         EMSCRIPTEN_RESULT result = emscripten_webgl_make_context_current(context);
         if(EMSCRIPTEN_RESULT_SUCCESS == result)
         {
-            EmscriptenFullscreenStrategy strategy;
+            EmscriptenFullscreenStrategy strategy{};
             strategy.scaleMode = EMSCRIPTEN_FULLSCREEN_SCALE_DEFAULT;
             strategy.canvasResolutionScaleMode = EMSCRIPTEN_FULLSCREEN_CANVAS_SCALE_STDDEF;
             strategy.filteringMode = EMSCRIPTEN_FULLSCREEN_FILTERING_DEFAULT;
