@@ -12,7 +12,7 @@ if env['RELEASE']:
     flags = '-s WASM=1 -Oz'
     linkerflags = ''
 else:
-    flags = '-O0 -s WASM=1 -g4 -s ASSERTIONS=2 -s SAFE_HEAP=1 -s DEMANGLE_SUPPORT=1 --source-map-base http://localhost:2015/'
+    flags = '-O0 -s WASM=1 -g4 -s ASSERTIONS=2 -s SAFE_HEAP=1 -s DEMANGLE_SUPPORT=1 --source-map-base /'
     linkerflags = ''
 
 env.StaticLibrary('imgui',source=[
